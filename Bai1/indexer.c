@@ -121,16 +121,27 @@ void processTextFile(const char *filename) {
         char currentWord[MAX_WORD_LEN];
         int wordIndex = 0;
         int isProperNoun = 0;
-        char prevNonSpaceChar = '.'; // giả sử bắt đầu câu (để chữ hoa đầu câu không bị coi là tên riêng)
+
+        char prevNonSpaceChar = '.';
 
         for (int i = 0; line[i] != '\0'; i++) {
             char c = line[i];
 
             if (isalpha((unsigned char)c)) {
-                // Khi bắt đầu một từ, quyết định xem đây có phải tên riêng hay không
+
                 if (wordIndex == 0) {
-                    if (isupper((unsigned char)c) && prevNonSpaceChar != '.' && prevNonSpaceChar != '?' && prevNonSpaceChar != '!') {
-                        isProperNoun = 1;
+                    if (isupper((unsigned char)c) &&
+                        prevNonSpaceChar != '.' &&
+                        prevNonSpaceChar != '?' &&
+                        prevNonSpaceChar != '!') {
+
+                        char next = line[i + 1];
+
+                        if (islower((unsigned char)next)) {
+                            isProperNoun = 1;
+                        } else {
+                            isProperNoun = 0;
+                        }
                     } else {
                         isProperNoun = 0;
                     }
@@ -139,42 +150,34 @@ void processTextFile(const char *filename) {
                 if (wordIndex < MAX_WORD_LEN - 1) {
                     currentWord[wordIndex++] = tolower((unsigned char)c);
                 }
+
             } else {
-                // Kết thúc một từ (nếu có)
+
                 if (wordIndex > 0) {
                     currentWord[wordIndex] = '\0';
 
-                    // Bỏ qua tên riêng
                     if (!isProperNoun && !isStopWord(currentWord)) {
-                        // Bỏ các token một ký tự không phải 'a' hoặc 'i'
-                        if (!(strlen(currentWord) == 1 && currentWord[0] != 'a' && currentWord[0] != 'i')) {
-                            addWordToIndex(currentWord, lineNum);
-                        }
+                        addWordToIndex(currentWord, lineNum);
                     }
 
                     wordIndex = 0;
                     isProperNoun = 0;
                 }
 
-                // cập nhật ký tự không-phải-khoảng-trắng
                 if (!isspace((unsigned char)c)) {
                     prevNonSpaceChar = c;
                 }
             }
 
-            // cập nhật prevNonSpaceChar nếu c là chữ và không phải khoảng trắng
             if (!isspace((unsigned char)c)) {
                 prevNonSpaceChar = c;
             }
         }
 
-        // Nếu dòng kết thúc nhưng vẫn còn một từ đang đọc
         if (wordIndex > 0) {
             currentWord[wordIndex] = '\0';
             if (!isProperNoun && !isStopWord(currentWord)) {
-                if (!(strlen(currentWord) == 1 && currentWord[0] != 'a' && currentWord[0] != 'i')) {
-                    addWordToIndex(currentWord, lineNum);
-                }
+                addWordToIndex(currentWord, lineNum);
             }
         }
     }
