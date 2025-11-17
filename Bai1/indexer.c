@@ -121,24 +121,17 @@ void processTextFile(const char *filename) {
         char currentWord[MAX_WORD_LEN];
         int wordIndex = 0;
         int isProperNoun = 0; 
-        int inProperNounSequence = 0;
-        char lastMeaningfulChar = ' ';  // Start with space, not period
+        char lastMeaningfulChar = '.'; 
 
         for (int i = 0; line[i] != '\0'; i++) {
             char c = line[i];
 
             if (isalpha(c)) { 
                 if (wordIndex == 0) { 
-                    if (isupper(c)) {
-                        if (lastMeaningfulChar == '.' && !inProperNounSequence) {
-                            isProperNoun = 0;
-                        } else {
-                            isProperNoun = 1;
-                            inProperNounSequence = 1;
-                        }
+                    if (isupper(c) && lastMeaningfulChar != '.') {
+                        isProperNoun = 1;
                     } else {
-                        isProperNoun = 0;
-                        inProperNounSequence = 0;
+                        isProperNoun = 0; 
                     }
                 }
                 
@@ -159,12 +152,7 @@ void processTextFile(const char *filename) {
                 }
                 
                 if (!isspace(c)) {
-                    if (c == '.') {
-                        lastMeaningfulChar = c;
-                        inProperNounSequence = 0;
-                    } else {
-                        lastMeaningfulChar = c;
-                    }
+                    lastMeaningfulChar = c;
                 }
             }
         }

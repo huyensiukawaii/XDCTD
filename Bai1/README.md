@@ -52,15 +52,18 @@ Chương trình nhận đúng 2 tham số: đường dẫn stop word và đườ
 ```
 
 ## Định dạng đầu ra
-- In tiêu đề, sau đó mỗi dòng gồm: từ, dấu cách, danh sách số dòng (phân tách bằng dấu phẩy) mà từ xuất hiện.
+- In tiêu đề cộng ba cột: từ (WORD), số lần xuất hiện (TIMES), danh sách số dòng (LINES).
+- Mỗi dòng gồm: từ, số lần xuất hiện, danh sách số dòng (phân tách bằng dấu phẩy) mà từ xuất hiện.
 - Ví dụ (minh họa):
 ```
 INDEX TABLE
-=======================
-apple           1,5,12
-banana          2,5
-...             ...
-=======================
+========================================
+WORD            TIMES   LINES
+========================================
+apple           3       1,5,12
+banana          2       2,5
+...             ...     ...
+========================================
 Total unique words: 123
 ```
 
