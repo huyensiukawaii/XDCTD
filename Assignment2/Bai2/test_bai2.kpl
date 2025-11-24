@@ -1,0 +1,15 @@
+PROGRAM Bai2;
+VAR x, y : INTEGER;
+    message : STRING;
+    data : BYTES;
+    
+BEGIN
+  x := 2 ** 10;           (* Mũ: 2^10 = 1024 *)
+  y := x % 3;             (* Mod: lấy phần dư *)
+  message := "Hello";     (* String *)
+  
+  // Comment kiểu C++
+  REPEAT
+    x := x - 1;
+  UNTIL x = 0;
+END.

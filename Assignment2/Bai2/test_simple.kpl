@@ -1,0 +1,6 @@
+PROGRAM Test1;
+VAR x : INTEGER;
+BEGIN
+  x := 1;  // Comment 1
+  x := 2;  // Comment 2
+END.
