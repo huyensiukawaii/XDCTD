@@ -83,7 +83,7 @@ KPL hỗ trợ:
 - **Hàm và thủ tục:** `FUNCTION`, `PROCEDURE`
 - **Câu lệnh:** gán (`:=`), `CALL`, `IF-THEN-ELSE`, `WHILE-DO`, `FOR-TO-DO`, `REPEAT-UNTIL`
 - **Biểu thức:** phép toán số học (`+`, `-`, `*`, `/`)
-- **Điều kiện:** phép so sánh (`=`, `<>`, `<`, `<=`, `>`, `>=`)
+- **Điều kiện:** phép so sánh (`=`, `!=`, `<`, `<=`, `>`, `>=`)
 
 ## Tính năng mở rộng
 
@@ -136,23 +136,23 @@ END.
 
 ## File test mẫu
 
-Dự án bao gồm các file test sau:
+Tất cả file test được đặt trong folder `tests/`:
 
-### 1. `test_simple.kpl`
+### 1. `tests/test_simple.kpl`
 Test cơ bản với assignment đơn giản, multi-assignment, và REPEAT-UNTIL.
 
 ```bash
-parser.exe test_simple.kpl
+parser.exe tests/test_simple.kpl
 ```
 
-### 2. `test_repeat.kpl`
+### 2. `tests/test_repeat.kpl`
 Test chi tiết cho vòng lặp REPEAT-UNTIL với nhiều trường hợp khác nhau.
 
 ```bash
-parser.exe test_repeat.kpl
+parser.exe tests/test_repeat.kpl
 ```
 
-### 3. `test_multiassign.kpl`
+### 3. `tests/test_multiassign.kpl`
 Test chi tiết cho tính năng gán nhiều biến với các trường hợp:
 - Gán giá trị số
 - Gán với biểu thức
@@ -161,10 +161,10 @@ Test chi tiết cho tính năng gán nhiều biến với các trường hợp:
 - Gán phần tử mảng
 
 ```bash
-parser.exe test_multiassign.kpl
+parser.exe tests/test_multiassign.kpl
 ```
 
-### 4. `test.kpl`
+### 4. `tests/test.kpl`
 Test toàn diện với tất cả tính năng của KPL:
 - Khai báo CONST, TYPE, VAR
 - Function và Procedure
@@ -172,7 +172,36 @@ Test toàn diện với tất cả tính năng của KPL:
 - Cả hai tính năng mở rộng
 
 ```bash
-parser.exe test.kpl
+parser.exe tests/test.kpl
+```
+
+### 5. `tests/test2.kpl` ⭐ (Khuyến nghị)
+**File test tổng hợp tất cả các test cases** - Bao gồm mọi thứ từ test_simple, test_repeat, test_multiassign và test.kpl:
+- ✅ 14 test suites khác nhau
+- ✅ Tất cả khai báo: CONST, TYPE, VAR
+- ✅ Function và Procedure
+- ✅ Assignment đơn và multi-assignment
+- ✅ Tất cả vòng lặp: WHILE, FOR, REPEAT-UNTIL
+- ✅ Tất cả câu điều kiện: IF-THEN-ELSE
+- ✅ Nested structures (vòng lặp lồng nhau, IF lồng nhau)
+- ✅ Array operations
+- ✅ Complex expressions
+- ✅ Tất cả comparison operators
+
+```bash
+parser.exe tests/test2.kpl
+```
+
+**Đây là file test đầy đủ nhất để kiểm tra toàn bộ parser!**
+
+### Chạy tất cả tests
+
+```bash
+# Windows
+for %f in (tests\*.kpl) do parser.exe %f
+
+# Linux/macOS
+for f in tests/*.kpl; do ./parser "$f"; done
 ```
 
 ## Dọn dẹp (clean)
