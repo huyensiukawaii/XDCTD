@@ -306,10 +306,14 @@ void compileStatement(void) {
   case KW_FOR:
     compileForSt();
     break;
+  case KW_REPEAT:
+    compileRepeatSt();
+    break;
     // EmptySt needs to check FOLLOW tokens
   case SB_SEMICOLON:
   case KW_END:
   case KW_ELSE:
+  case KW_UNTIL:
     break;
     // Error occurs
   default:
@@ -322,8 +326,18 @@ void compileAssignSt(void) {
   assert("Parsing an assign statement ....");
   eat(TK_IDENT);
   compileIndexes();
-  eat(SB_ASSIGN);
-  compileExpression();
+
+  // Check if this is a multiple variable assignment
+  if (lookAhead->tokenType == SB_COMMA) {
+    // Multiple assignment: x,y,z := expr1,expr2,expr3
+    compileVariables2();
+    eat(SB_ASSIGN);
+    compileExpressions();
+  } else {
+    // Single assignment: x := expr
+    eat(SB_ASSIGN);
+    compileExpression();
+  }
   assert("Assign statement parsed ....");
 }
 
@@ -379,6 +393,15 @@ void compileForSt(void) {
   eat(KW_DO);
   compileStatement();
   assert("For statement parsed ....");
+}
+
+void compileRepeatSt(void) {
+  assert("Parsing a repeat statement ....");
+  eat(KW_REPEAT);
+  compileStatements();
+  eat(KW_UNTIL);
+  compileCondition();
+  assert("Repeat statement parsed ....");
 }
 
 void compileArguments(void) {
@@ -536,6 +559,37 @@ void compileIndexes(void) {
     compileExpression();
     eat(SB_RSEL);
     compileIndexes();
+  }
+}
+
+void compileVariables(void) {
+  // Parse first variable (already eaten the IDENT)
+  compileIndexes();
+  compileVariables2();
+}
+
+void compileVariables2(void) {
+  // Parse additional variables: , var1 , var2 ...
+  if (lookAhead->tokenType == SB_COMMA) {
+    eat(SB_COMMA);
+    eat(TK_IDENT);
+    compileIndexes();
+    compileVariables2();
+  }
+}
+
+void compileExpressions(void) {
+  // Parse first expression
+  compileExpression();
+  compileExpressions2();
+}
+
+void compileExpressions2(void) {
+  // Parse additional expressions: , expr1 , expr2 ...
+  if (lookAhead->tokenType == SB_COMMA) {
+    eat(SB_COMMA);
+    compileExpression();
+    compileExpressions2();
   }
 }
 

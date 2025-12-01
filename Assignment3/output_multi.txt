@@ -1,0 +1,207 @@
+Parsing a Program ....
+1-1:KW_PROGRAM
+1-9:TK_IDENT(TestMultiAssign)
+1-24:SB_SEMICOLON
+Parsing a Block ....
+3-1:KW_VAR
+4-3:TK_IDENT(x)
+4-5:SB_COLON
+4-7:KW_INTEGER
+4-14:SB_SEMICOLON
+5-3:TK_IDENT(y)
+5-5:SB_COLON
+5-7:KW_INTEGER
+5-14:SB_SEMICOLON
+6-3:TK_IDENT(z)
+6-5:SB_COLON
+6-7:KW_INTEGER
+6-14:SB_SEMICOLON
+7-3:TK_IDENT(a)
+7-5:SB_COLON
+7-7:KW_INTEGER
+7-14:SB_SEMICOLON
+8-3:TK_IDENT(b)
+8-5:SB_COLON
+8-7:KW_INTEGER
+8-14:SB_SEMICOLON
+9-3:TK_IDENT(arr)
+9-7:SB_COLON
+9-9:KW_ARRAY
+9-15:SB_LSEL
+9-17:TK_NUMBER(5)
+9-18:SB_RSEL
+9-21:KW_OF
+9-24:KW_INTEGER
+9-31:SB_SEMICOLON
+Parsing subtoutines ....
+Subtoutines parsed ....
+11-1:KW_BEGIN
+Parsing an assign statement ....
+13-3:TK_IDENT(x)
+13-4:SB_COMMA
+13-6:TK_IDENT(y)
+13-7:SB_COMMA
+13-9:TK_IDENT(z)
+13-11:SB_ASSIGN
+Parsing an expression
+13-14:TK_NUMBER(10)
+Expression parsed
+13-16:SB_COMMA
+Parsing an expression
+13-18:TK_NUMBER(20)
+Expression parsed
+13-20:SB_COMMA
+Parsing an expression
+13-22:TK_NUMBER(30)
+Expression parsed
+Assign statement parsed ....
+13-24:SB_SEMICOLON
+Parsing an assign statement ....
+16-3:TK_IDENT(x)
+16-4:SB_COMMA
+16-6:TK_IDENT(y)
+16-7:SB_COMMA
+16-9:TK_IDENT(z)
+16-11:SB_ASSIGN
+Parsing an expression
+16-14:TK_NUMBER(1)
+16-16:SB_PLUS
+16-18:TK_NUMBER(2)
+Expression parsed
+16-19:SB_COMMA
+Parsing an expression
+16-21:TK_NUMBER(3)
+16-23:SB_TIMES
+16-25:TK_NUMBER(4)
+Expression parsed
+16-26:SB_COMMA
+Parsing an expression
+16-28:TK_NUMBER(5)
+16-30:SB_MINUS
+16-32:TK_NUMBER(1)
+Expression parsed
+Assign statement parsed ....
+16-33:SB_SEMICOLON
+Parsing an assign statement ....
+19-3:TK_IDENT(a)
+19-5:SB_ASSIGN
+Parsing an expression
+19-8:TK_NUMBER(100)
+Expression parsed
+Assign statement parsed ....
+19-11:SB_SEMICOLON
+Parsing an assign statement ....
+20-3:TK_IDENT(b)
+20-5:SB_ASSIGN
+Parsing an expression
+20-8:TK_NUMBER(200)
+Expression parsed
+Assign statement parsed ....
+20-11:SB_SEMICOLON
+Parsing an assign statement ....
+21-3:TK_IDENT(x)
+21-4:SB_COMMA
+21-6:TK_IDENT(y)
+21-8:SB_ASSIGN
+Parsing an expression
+21-11:TK_IDENT(a)
+Expression parsed
+21-12:SB_COMMA
+Parsing an expression
+21-14:TK_IDENT(b)
+Expression parsed
+Assign statement parsed ....
+21-15:SB_SEMICOLON
+Parsing an assign statement ....
+24-3:TK_IDENT(a)
+24-5:SB_ASSIGN
+Parsing an expression
+24-8:TK_NUMBER(5)
+Expression parsed
+Assign statement parsed ....
+24-9:SB_SEMICOLON
+Parsing an assign statement ....
+25-3:TK_IDENT(b)
+25-5:SB_ASSIGN
+Parsing an expression
+25-8:TK_NUMBER(10)
+Expression parsed
+Assign statement parsed ....
+25-10:SB_SEMICOLON
+Parsing an assign statement ....
+26-3:TK_IDENT(a)
+26-4:SB_COMMA
+26-6:TK_IDENT(b)
+26-8:SB_ASSIGN
+Parsing an expression
+26-11:TK_IDENT(b)
+Expression parsed
+26-12:SB_COMMA
+Parsing an expression
+26-14:TK_IDENT(a)
+Expression parsed
+Assign statement parsed ....
+26-15:SB_SEMICOLON
+Parsing an assign statement ....
+29-3:TK_IDENT(arr)
+29-6:SB_LSEL
+Parsing an expression
+29-8:TK_NUMBER(0)
+Expression parsed
+29-9:SB_RSEL
+29-11:SB_COMMA
+29-13:TK_IDENT(arr)
+29-16:SB_LSEL
+Parsing an expression
+29-18:TK_NUMBER(1)
+Expression parsed
+29-19:SB_RSEL
+29-21:SB_COMMA
+29-23:TK_IDENT(arr)
+29-26:SB_LSEL
+Parsing an expression
+29-28:TK_NUMBER(2)
+Expression parsed
+29-29:SB_RSEL
+29-32:SB_ASSIGN
+Parsing an expression
+29-35:TK_NUMBER(1)
+Expression parsed
+29-36:SB_COMMA
+Parsing an expression
+29-38:TK_NUMBER(2)
+Expression parsed
+29-39:SB_COMMA
+Parsing an expression
+29-41:TK_NUMBER(3)
+Expression parsed
+Assign statement parsed ....
+29-42:SB_SEMICOLON
+Parsing an assign statement ....
+32-3:TK_IDENT(x)
+32-4:SB_COMMA
+32-6:TK_IDENT(arr)
+32-9:SB_LSEL
+Parsing an expression
+32-11:TK_NUMBER(0)
+Expression parsed
+32-12:SB_RSEL
+32-14:SB_COMMA
+32-16:TK_IDENT(y)
+32-18:SB_ASSIGN
+Parsing an expression
+32-21:TK_NUMBER(100)
+Expression parsed
+32-24:SB_COMMA
+Parsing an expression
+32-26:TK_NUMBER(200)
+Expression parsed
+32-29:SB_COMMA
+Parsing an expression
+32-31:TK_NUMBER(300)
+Expression parsed
+Assign statement parsed ....
+34-1:KW_END
+Block parsed!
+34-4:SB_PERIOD
+Program parsed!

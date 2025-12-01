@@ -1,0 +1,21 @@
+PROGRAM SimpleTest;
+
+VAR
+  a : INTEGER;
+  b : INTEGER;
+  c : INTEGER;
+
+BEGIN
+  (* Test 1: Simple assignment *)
+  a := 10;
+
+  (* Test 2: Multiple variable assignment *)
+  a, b, c := 1, 2, 3;
+
+  (* Test 3: REPEAT-UNTIL loop *)
+  a := 1;
+  REPEAT
+    a := a + 1
+  UNTIL a > 5
+
+END.

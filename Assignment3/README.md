@@ -58,12 +58,17 @@ PROGRAM Example;
 CONST
   MAX = 100;
 VAR
-  x, y : INTEGER;
+  x : INTEGER;
+  y : INTEGER;
 BEGIN
   x := 10;
   y := x + 5;
 END.
 ```
+
+**Lưu ý:**
+- Mỗi biến phải được khai báo trên một dòng riêng
+- Dấu ngoặc vuông `[` `]` trong KPL được viết là `(.` và `.)`
 
 Chạy parser:
 ```bash
@@ -76,9 +81,99 @@ KPL hỗ trợ:
 - **Khai báo:** `CONST`, `TYPE`, `VAR`
 - **Kiểu dữ liệu:** `INTEGER`, `CHAR`, `ARRAY`
 - **Hàm và thủ tục:** `FUNCTION`, `PROCEDURE`
-- **Câu lệnh:** gán (`:=`), `CALL`, `IF-THEN-ELSE`, `WHILE-DO`, `FOR-TO-DO`
+- **Câu lệnh:** gán (`:=`), `CALL`, `IF-THEN-ELSE`, `WHILE-DO`, `FOR-TO-DO`, `REPEAT-UNTIL`
 - **Biểu thức:** phép toán số học (`+`, `-`, `*`, `/`)
 - **Điều kiện:** phép so sánh (`=`, `<>`, `<`, `<=`, `>`, `>=`)
+
+## Tính năng mở rộng
+
+### 1. Vòng lặp REPEAT-UNTIL
+
+Cú pháp:
+```pascal
+REPEAT
+  statement1;
+  statement2;
+  ...
+UNTIL condition
+```
+
+Ví dụ:
+```pascal
+PROGRAM RepeatExample;
+VAR
+  x : INTEGER;
+BEGIN
+  x := 1;
+  REPEAT
+    x := x + 1
+  UNTIL x > 10
+END.
+```
+
+### 2. Gán nhiều biến
+
+Cú pháp:
+```pascal
+var1, var2, var3 := expr1, expr2, expr3
+```
+
+Ví dụ:
+```pascal
+PROGRAM MultiAssign;
+VAR
+  x : INTEGER;
+  y : INTEGER;
+  z : INTEGER;
+BEGIN
+  x, y, z := 10, 20, 30
+END.
+```
+
+**Lưu ý:**
+- Số lượng biến và số lượng biểu thức phải bằng nhau
+- Gán nhiều biến chỉ áp dụng trong statement, không áp dụng trong khai báo VAR
+
+## File test mẫu
+
+Dự án bao gồm các file test sau:
+
+### 1. `test_simple.kpl`
+Test cơ bản với assignment đơn giản, multi-assignment, và REPEAT-UNTIL.
+
+```bash
+parser.exe test_simple.kpl
+```
+
+### 2. `test_repeat.kpl`
+Test chi tiết cho vòng lặp REPEAT-UNTIL với nhiều trường hợp khác nhau.
+
+```bash
+parser.exe test_repeat.kpl
+```
+
+### 3. `test_multiassign.kpl`
+Test chi tiết cho tính năng gán nhiều biến với các trường hợp:
+- Gán giá trị số
+- Gán với biểu thức
+- Gán với biến
+- Swap biến
+- Gán phần tử mảng
+
+```bash
+parser.exe test_multiassign.kpl
+```
+
+### 4. `test.kpl`
+Test toàn diện với tất cả tính năng của KPL:
+- Khai báo CONST, TYPE, VAR
+- Function và Procedure
+- Tất cả các loại statement
+- Cả hai tính năng mở rộng
+
+```bash
+parser.exe test.kpl
+```
 
 ## Dọn dẹp (clean)
 

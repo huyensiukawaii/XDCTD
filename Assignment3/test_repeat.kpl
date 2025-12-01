@@ -1,0 +1,28 @@
+PROGRAM TestRepeat;
+
+VAR
+  x : INTEGER;
+  sum : INTEGER;
+
+BEGIN
+  (* Example 1: Simple REPEAT-UNTIL *)
+  x := 1;
+  REPEAT
+    x := x + 1
+  UNTIL x > 10;
+
+  (* Example 2: REPEAT with multiple statements *)
+  sum := 0;
+  x := 1;
+  REPEAT
+    sum := sum + x;
+    x := x + 1
+  UNTIL x > 5;
+
+  (* Example 3: Nested REPEAT inside IF *)
+  IF sum > 0 THEN
+    REPEAT
+      sum := sum - 1
+    UNTIL sum = 0
+
+END.

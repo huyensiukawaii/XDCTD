@@ -1,0 +1,122 @@
+Parsing a Program ....
+1-1:KW_PROGRAM
+1-9:TK_IDENT(TestRepeat)
+1-19:SB_SEMICOLON
+Parsing a Block ....
+3-1:KW_VAR
+4-3:TK_IDENT(x)
+4-5:SB_COLON
+4-7:KW_INTEGER
+4-14:SB_SEMICOLON
+5-3:TK_IDENT(sum)
+5-7:SB_COLON
+5-9:KW_INTEGER
+5-16:SB_SEMICOLON
+Parsing subtoutines ....
+Subtoutines parsed ....
+7-1:KW_BEGIN
+Parsing an assign statement ....
+9-3:TK_IDENT(x)
+9-5:SB_ASSIGN
+Parsing an expression
+9-8:TK_NUMBER(1)
+Expression parsed
+Assign statement parsed ....
+9-9:SB_SEMICOLON
+Parsing a repeat statement ....
+10-3:Parsing an assign statement ....
+11-5:TK_IDENT(x)
+11-7:SB_ASSIGN
+Parsing an expression
+11-10:TK_IDENT(x)
+11-12:SB_PLUS
+11-14:TK_NUMBER(1)
+Expression parsed
+Assign statement parsed ....
+12-3:Parsing an expression
+12-9:TK_IDENT(x)
+Expression parsed
+12-11:SB_GT
+Parsing an expression
+12-13:TK_NUMBER(10)
+Expression parsed
+Repeat statement parsed ....
+12-15:SB_SEMICOLON
+Parsing an assign statement ....
+15-3:TK_IDENT(sum)
+15-7:SB_ASSIGN
+Parsing an expression
+15-10:TK_NUMBER(0)
+Expression parsed
+Assign statement parsed ....
+15-11:SB_SEMICOLON
+Parsing an assign statement ....
+16-3:TK_IDENT(x)
+16-5:SB_ASSIGN
+Parsing an expression
+16-8:TK_NUMBER(1)
+Expression parsed
+Assign statement parsed ....
+16-9:SB_SEMICOLON
+Parsing a repeat statement ....
+17-3:Parsing an assign statement ....
+18-5:TK_IDENT(sum)
+18-9:SB_ASSIGN
+Parsing an expression
+18-12:TK_IDENT(sum)
+18-16:SB_PLUS
+18-18:TK_IDENT(x)
+Expression parsed
+Assign statement parsed ....
+18-19:SB_SEMICOLON
+Parsing an assign statement ....
+19-5:TK_IDENT(x)
+19-7:SB_ASSIGN
+Parsing an expression
+19-10:TK_IDENT(x)
+19-12:SB_PLUS
+19-14:TK_NUMBER(1)
+Expression parsed
+Assign statement parsed ....
+20-3:Parsing an expression
+20-9:TK_IDENT(x)
+Expression parsed
+20-11:SB_GT
+Parsing an expression
+20-13:TK_NUMBER(5)
+Expression parsed
+Repeat statement parsed ....
+20-14:SB_SEMICOLON
+Parsing an if statement ....
+23-3:KW_IF
+Parsing an expression
+23-6:TK_IDENT(sum)
+Expression parsed
+23-10:SB_GT
+Parsing an expression
+23-12:TK_NUMBER(0)
+Expression parsed
+23-14:KW_THEN
+Parsing a repeat statement ....
+24-5:Parsing an assign statement ....
+25-7:TK_IDENT(sum)
+25-11:SB_ASSIGN
+Parsing an expression
+25-14:TK_IDENT(sum)
+25-18:SB_MINUS
+25-20:TK_NUMBER(1)
+Expression parsed
+Assign statement parsed ....
+26-5:Parsing an expression
+26-11:TK_IDENT(sum)
+Expression parsed
+26-15:SB_EQ
+Parsing an expression
+26-17:TK_NUMBER(0)
+Expression parsed
+Repeat statement parsed ....
+If statement parsed ....
+28-1:KW_END
+Block parsed!
+28-4:SB_PERIOD
+Program parsed!
